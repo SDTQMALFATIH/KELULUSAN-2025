@@ -16,7 +16,26 @@
     <div id="result"></div>
   </div>
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+  <script src="data_with_photos.js"></script>
+  <script>
+    function checkGraduation() {
+      const nameInput = document.getElementById("nameInput").value.trim().toLowerCase();
+      const resultDiv = document.getElementById("result");
+
+      const siswa = data.find(item => item.nama.toLowerCase() === nameInput);
+
+      if (siswa) {
+        resultDiv.innerHTML = `
+          <div class="result-box">
+            <h3>Selamat, ${siswa.nama}!</h3>
+            <p>Status: <strong>${siswa.status}</strong></p>
+            <img src="images/${siswa.foto}" alt="Foto ${siswa.nama}" class="student-photo"/>
+          </div>
+        `;
+      } else {
+        resultDiv.innerHTML = `<p style="color:red;">Nama tidak ditemukan. Silakan cek kembali penulisan nama.</p>`;
+      }
+    }
+  </script>
 </body>
 </html>

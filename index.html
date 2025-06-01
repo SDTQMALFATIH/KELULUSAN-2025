@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pengumuman Kelulusan SDTQ 2025</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .student-photo {
+      width: 180px;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -37,7 +47,7 @@
           </div>
         `;
       } else {
-        resultDiv.innerHTML = `<p style="color:red;">Nama tidak ditemukan. Coba masukkan nama panggilan atau periksa kembali ejaan.</p>`;
+        resultDiv.innerHTML = `<p style="color:red;">Nama tidak ditemukan. Coba masukkan sebagian nama atau nama panggilan.</p>`;
       }
     }
   </script>

@@ -6,6 +6,16 @@
   <title>Pengumuman Kelulusan SDTQ 2025</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      margin-top: 20px;
+      font-family: sans-serif;
+    }
+    .logo {
+      width: 60px;
+      height: auto;
+      display: block;
+      margin: 0 auto 15px auto;
+    }
     .student-photo {
       width: 180px;
       height: 270px;
@@ -15,15 +25,6 @@
       margin-top: 10px;
     }
   </style>
-  <style>
-  .logo {
-    width: 100px;
-    height: auto;
-    display: block;
-    margin: 0 auto 10px auto;
-  }
-</style>
-
 </head>
 <body>
   <div class="container">
@@ -38,7 +39,7 @@
   <script src="data_with_photos.js"></script>
   <script>
     function normalizeName(name) {
-      return name.trim().toLowerCase().replace(/\s+/g, " ");
+      return name.trim().toLowerCase().replace(/\\s+/g, " ");
     }
 
     function checkGraduation() {

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -9,13 +10,26 @@
     body {
       margin-top: 20px;
       font-family: sans-serif;
+      background-color: #f8f8f8;
     }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
     .logo {
       width: 60px;
       height: auto;
       display: block;
       margin: 0 auto 15px auto;
     }
+
     .student-photo {
       width: 180px;
       height: 270px;
@@ -23,6 +37,21 @@
       border-radius: 8px;
       box-shadow: 0 0 5px rgba(0,0,0,0.3);
       margin-top: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -39,7 +68,7 @@
   <script src="data_with_photos.js"></script>
   <script>
     function normalizeName(name) {
-      return name.trim().toLowerCase().replace(/\\s+/g, " ");
+      return name.trim().toLowerCase().replace(/\s+/g, " ");
     }
 
     function checkGraduation() {
@@ -49,6 +78,7 @@
       const siswa = students.find(s => normalizeName(s.name).includes(input));
 
       if (siswa) {
+        showConfetti();
         resultDiv.innerHTML = `
           <div class="result-box">
             <h3>Selamat, ${siswa.name}!</h3>
@@ -59,6 +89,17 @@
       } else {
         resultDiv.innerHTML = `<p style="color:red;">Nama tidak ditemukan. Coba masukkan sebagian nama atau nama panggilan.</p>`;
       }
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    function showConfetti() {
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
     }
   </script>
 </body>

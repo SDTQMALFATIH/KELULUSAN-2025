@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,7 +11,7 @@
     <img src="logo.png" alt="Logo Sekolah" class="logo" />
     <h1>Pengumuman Kelulusan</h1>
     <h2>SDTQ Muhammad Al Fatih Tahun 2025</h2>
-    <input type="text" id="nameInput" placeholder="Masukkan Nama Lengkap Anda (sesuai data)" />
+    <input type="text" id="nameInput" placeholder="Masukkan Nama Anda (boleh nama panggilan)" />
     <button onclick="checkGraduation()">Cek Kelulusan</button>
     <div id="result"></div>
   </div>
@@ -20,14 +19,14 @@
   <script src="data_with_photos.js"></script>
   <script>
     function normalizeName(name) {
-      return name.trim().toLowerCase().replace(/\s+/g, " ");
+      return name.trim().toLowerCase().replace(/\\s+/g, " ");
     }
 
     function checkGraduation() {
       const input = normalizeName(document.getElementById("nameInput").value);
       const resultDiv = document.getElementById("result");
 
-      const siswa = students.find(s => normalizeName(s.name) === input);
+      const siswa = students.find(s => normalizeName(s.name).includes(input));
 
       if (siswa) {
         resultDiv.innerHTML = `
@@ -38,7 +37,7 @@
           </div>
         `;
       } else {
-        resultDiv.innerHTML = `<p style="color:red;">Nama tidak ditemukan. Pastikan ejaan nama lengkap sesuai data.</p>`;
+        resultDiv.innerHTML = `<p style="color:red;">Nama tidak ditemukan. Coba masukkan nama panggilan atau periksa kembali ejaan.</p>`;
       }
     }
   </script>

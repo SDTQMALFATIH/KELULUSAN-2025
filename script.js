@@ -1,8 +1,8 @@
 function normalize(text) {
   return text
     .toLowerCase()
-    .replace(/[^\w\s]/gi, '') // hilangkan karakter khusus seperti titik, strip, dll
-    .replace(/\s+/g, ' ')     // hilangkan spasi berlebihan
+    .replace(/[^\w\s]/gi, '') // hapus karakter khusus
+    .replace(/\s+/g, ' ')     // rapikan spasi
     .trim();
 }
 
@@ -15,6 +15,7 @@ function checkGraduation() {
   if (matches.length === 1) {
     const student = matches[0];
     resultDiv.innerHTML = `
+      <img src="${student.photo}" alt="Foto ${student.name}" style="width:150px; border-radius:10px; margin-bottom:10px;" />
       <p><strong>Nama:</strong> ${student.name}</p>
       <p><strong>Status Kelulusan:</strong> <span style="color:green;">${student.status}</span></p>
     `;
@@ -26,6 +27,6 @@ function checkGraduation() {
     resultHTML += "</ul>";
     resultDiv.innerHTML = resultHTML;
   } else {
-    resultDiv.innerHTML = "<p style='color:red;'>Nama tidak ditemukan. Silakan cek kembali penulisan nama Anda.</p>";
+    resultDiv.innerHTML = "<p style='color:red;'>Nama tidak ditemukan. Silakan periksa kembali penulisan nama Anda.</p>";
   }
 }

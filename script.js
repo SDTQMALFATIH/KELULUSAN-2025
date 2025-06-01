@@ -1,8 +1,8 @@
-
 function checkGraduation() {
-  const nisn = document.getElementById("nisnInput").value.trim();
+  const nameInput = document.getElementById("nameInput").value.trim().toLowerCase();
   const resultDiv = document.getElementById("result");
-  const student = students.find(s => s.nisn === nisn);
+
+  const student = students.find(s => s.name.toLowerCase() === nameInput);
 
   if (student) {
     resultDiv.innerHTML = `
@@ -10,6 +10,6 @@ function checkGraduation() {
       <p><strong>Status Kelulusan:</strong> <span style="color:green;">${student.status}</span></p>
     `;
   } else {
-    resultDiv.innerHTML = "<p style='color:red;'>NISN tidak ditemukan. Silakan periksa kembali.</p>";
+    resultDiv.innerHTML = "<p style='color:red;'>Nama tidak ditemukan. Silakan periksa kembali penulisan nama Anda.</p>";
   }
 }

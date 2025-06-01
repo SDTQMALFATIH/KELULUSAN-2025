@@ -66,9 +66,19 @@
   </div>
 
   <script src="data_with_photos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     function normalizeName(name) {
       return name.trim().toLowerCase().replace(/\s+/g, " ");
+    }
+
+    function showConfetti() {
+      confetti({
+        particleCount: 200,
+        spread: 120,
+        startVelocity: 45,
+        origin: { x: 0.5, y: 0.6 }
+      });
     }
 
     function checkGraduation() {
@@ -89,17 +99,6 @@
       } else {
         resultDiv.innerHTML = `<p style="color:red;">Nama tidak ditemukan. Coba masukkan sebagian nama atau nama panggilan.</p>`;
       }
-    }
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script>
-    function showConfetti() {
-      confetti({
-        particleCount: 150,
-        spread: 100,
-        origin: { y: 0.6 }
-      });
     }
   </script>
 </body>

@@ -23,7 +23,8 @@
       const input = document.getElementById("nameInput").value.trim().toLowerCase();
       const resultDiv = document.getElementById("result");
 
-      const siswa = students.find(s => s.name.toLowerCase() === input);
+      const siswa = students.find(s => s.name.toLowerCase().includes(input));
+
 
       if (siswa) {
         resultDiv.innerHTML = `

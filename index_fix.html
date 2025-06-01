@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pengumuman Kelulusan SDTQ 2025</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Logo Sekolah" class="logo" />
+    <h1>Pengumuman Kelulusan</h1>
+    <h2>SDTQ Muhammad Al Fatih Tahun 2025</h2>
+    <input type="text" id="nameInput" placeholder="Masukkan Nama Anda" />
+    <button onclick="checkGraduation()">Cek Kelulusan</button>
+    <div id="result"></div>
+  </div>
+
+  <script src="data_with_photos.js"></script>
+  <script>
+    function checkGraduation() {
+      const input = document.getElementById("nameInput").value.trim().toLowerCase();
+      const resultDiv = document.getElementById("result");
+
+      const siswa = students.find(s => s.name.toLowerCase() === input);
+
+      if (siswa) {
+        resultDiv.innerHTML = `
+          <div class="result-box">
+            <h3>Selamat, ${siswa.name}!</h3>
+            <p>Status: <strong>${siswa.status}</strong></p>
+            <img src="${siswa.photo}" alt="Foto ${siswa.name}" class="student-photo"/>
+          </div>
+        `;
+      } else {
+        resultDiv.innerHTML = `<p style="color:red;">Nama tidak ditemukan. Pastikan ejaannya benar.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
